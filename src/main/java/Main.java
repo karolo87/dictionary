@@ -1,26 +1,27 @@
+import file_operations.DictionaryLoader;
 import file_operations.DictionarySaver;
 import model.Dictionary;
-import model.Language;
 import model.Word;
-import model.WordLine;
 import utils.DictionaryOperations;
 import utils.LanguageParser;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        List<WordLine> wordList = new ArrayList<>();
 
-        Dictionary dictionary = new Dictionary(wordList);
+
+//        List<WordLine> wordList = new ArrayList<>();
+
+        Dictionary dictionary = DictionaryLoader.loadDictionaryFromFile("src/main/resources/dictionary.txt");
         DictionaryOperations dictionaryOperations = new DictionaryOperations(dictionary);
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Choose your option: (1 - enter pair of words, 2 - enter a single word, 3 - display a dictionary)");
         String option = scanner.next();
-        dictionary.getWordList().forEach(System.out::println);
+//        dictionary.getWordList().forEach(System.out::println);
 
         do {
             switch (option) {

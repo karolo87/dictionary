@@ -1,2 +1,4 @@
-pies;POLISH;dog;ENGLISH
-monsieur;FRENCH
+dog;ENGLISH;pies;POLISH
+monsieur;FRENCH;pan;POLISH
+pióro;POLISH;pen;ENGLISH
+komputer;POLISH;computer;ENGLISH

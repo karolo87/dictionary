@@ -1,18 +1,19 @@
 package file_operations;
 
 import model.Dictionary;
-import model.Word;
 import model.WordLine;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
-import java.util.Set;
 
 public class DictionarySaver {
 
     public static void saveDictionaryToFile(Dictionary dictionary) {
 
-        try (FileWriter fileWriter = new FileWriter("src/main/resources/dictionary.txt", true);
+        try (FileWriter fileWriter = new FileWriter("src/main/resources/dictionary.txt", false);
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
              PrintWriter printWriter = new PrintWriter(bufferedWriter)){
             List<WordLine> wordLineList = dictionary.getWordList();
