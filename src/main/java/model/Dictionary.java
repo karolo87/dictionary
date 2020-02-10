@@ -17,4 +17,5 @@ public class Dictionary {
     public void setWordList(List<WordLine> wordList) {
         this.wordList = wordList;
     }
+
 }

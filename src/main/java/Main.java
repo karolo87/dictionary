@@ -11,17 +11,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-
-
-//        List<WordLine> wordList = new ArrayList<>();
-
         Dictionary dictionary = DictionaryLoader.loadDictionaryFromFile("src/main/resources/dictionary.txt");
         DictionaryOperations dictionaryOperations = new DictionaryOperations(dictionary);
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Choose your option: (1 - enter pair of words, 2 - enter a single word, 3 - display a dictionary)");
+        System.out.println("Choose your option: (1 - enter pair of words, 2 - enter a single word, 3 - display a dictionary)" +
+                " 4 - display a dictionary sorted, with given languages)");
         String option = scanner.next();
-//        dictionary.getWordList().forEach(System.out::println);
 
         do {
             switch (option) {
@@ -49,8 +45,18 @@ public class Main {
                     break;
                 case "3":
                     dictionary.getWordList().forEach(System.out::println);
+                    break;
+                case "4":
+                    dictionaryOperations.displayDictionarySorted(dictionary).forEach(System.out::println);
+//                    System.out.println("Enter 1st language: ('PL' / 'ENG' / 'FR')");
+//                    Language lang_1 = LanguageParser.parseStringToLanguage(scanner.next());
+//                    System.out.println("Enter 2nd language: ('PL' / 'ENG' / 'FR')");
+//                    Language lang_2 = LanguageParser.parseStringToLanguage(scanner.next());
+//                    dictionaryOperations.displayDictionarySorted(dictionary, lang_1, lang_2);
+//                    break;
             }
-            System.out.println("Choose your option: (1 - enter pair of words, 2 - enter a single word, 3 - display a dictionary)");
+            System.out.println("Choose your option: (1 - enter pair of words, 2 - enter a single word, 3 - display a dictionary," +
+                    " 4 - display a dictionary sorted, with given languages)");
             option = scanner.next();
         } while (!option.equalsIgnoreCase("quit"));
 

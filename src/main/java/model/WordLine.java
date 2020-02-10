@@ -1,8 +1,9 @@
 package model;
 
 import java.util.Set;
+import java.util.TreeSet;
 
-public class WordLine {
+public class WordLine extends TreeSet{
 
     private Set<Word> wordLine;
 
@@ -24,4 +25,5 @@ public class WordLine {
                 "wordLine=" + wordLine +
                 '}';
     }
+
 }

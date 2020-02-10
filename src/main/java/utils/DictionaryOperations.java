@@ -1,11 +1,13 @@
 package utils;
 
 import model.Dictionary;
+import model.Language;
 import model.Word;
 import model.WordLine;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class DictionaryOperations {
 
@@ -21,9 +23,10 @@ public class DictionaryOperations {
             System.out.println("Word already exists in a dictionary.");
             return false;
         }
-        Set<Word> words = new HashSet<>();
+        Set<Word> words = new TreeSet<>(Comparator.comparing(Word::getLanguage));
         words.add(word);
         WordLine wordLine = new WordLine(words);
+//        wordLine.sortByLanguage();
         this.dictionary.getWordList().add(wordLine);
         System.out.println(word.getWord() + " successfully added!");
         return true;
@@ -36,19 +39,29 @@ public class DictionaryOperations {
             System.out.println(word1 + " - " + word2 + " -> this line already exists!");
             return false;
         }
+
+        List<WordLine> wordList = this.dictionary.getWordList();
         if (!AddingWordValidation.checkIfWordExists(this.dictionary, word1)
                 && !AddingWordValidation.checkIfWordExists(this.dictionary, word2)) {
-            Set<Word> wordSet = new HashSet<>();
+            Set<Word> wordSet = new TreeSet<>(Comparator.comparing(Word::getLanguage));
             wordSet.add(word1);
             wordSet.add(word2);
-            this.dictionary.getWordList().add(new WordLine(wordSet));
+            WordLine wordLine = new WordLine(wordSet);
+            wordList.add(wordLine);
             return true;
         }
-        this.dictionary.getWordList().forEach(wordLine -> {
+        wordList.forEach(wordLine -> {
             if (wordLine.getWordLine().contains(word1)) wordLine.getWordLine().add(word2);
             if (wordLine.getWordLine().contains(word2)) wordLine.getWordLine().add(word1);
         });
         return true;
+    }
+
+    public List<Set<Word>> displayDictionarySorted(Dictionary dictionary) {
+        return dictionary.getWordList().stream()
+                .map(WordLine::getWordLine)
+                .sorted(Comparator.comparing(Object::toString))
+                .collect(Collectors.toList());
     }
 
 }

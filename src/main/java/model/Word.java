@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class Word {
+public class Word{
 
     private String word;
     private Language language;
