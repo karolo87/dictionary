@@ -1,9 +1,0 @@
-dog;ENGLISH;pies;POLISH
-pan;POLISH;monsieur;FRENCH
-pióro;POLISH;pen;ENGLISH
-komputer;POLISH;computer;ENGLISH
-mouse;ENGLISH;mysz;POLISH
-friend;ENGLISH;ami;FRENCH;przyjaciel;POLISH
-cheval;FRENCH;koń;POLISH;horse;ENGLISH
-hat;ENGLISH;chapeau;FRENCH;kapelusz;POLISH
-obtain;ENGLISH;obtenir;FRENCH;uzyskać;POLISH
